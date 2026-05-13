@@ -18,7 +18,11 @@ app.use(helmet());
 // ─── CORS ──────────────────────────────────────────────────────────────────
 app.use(
   cors({
-    origin: config.cors.origin,
+    origin: [
+      'http://localhost:8081',  // Expo web
+      'http://localhost:3000',  // other local
+      'https://your-frontend.com', // production
+    ],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
